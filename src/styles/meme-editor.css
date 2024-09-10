@@ -1,6 +1,35 @@
 #meme-viewer{
     flex-grow: 1;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+#meme-viewer>svg{
+    max-height: 100%;
 }
 #meme-editor{
     padding: 5px 10px;
+    text-align: center;
+}
+form label{
+    display: block;
+}
+.cols_2, .cols_3, .cols{
+    display: flex;
+    justify-content: space-between;
+}
+.cols_3>*{
+    width:31%;
+    text-align: center;
+}
+.cols_2>*{
+    width:48%;
+    text-align: center;
+}
+.cols_2>* input{
+    max-width: 80px;
+}
+.center{
+    text-align: center;
 }

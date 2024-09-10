@@ -3,6 +3,7 @@ body{
     display: flex;
     flex-direction: column;
 }
+#main{height: calc(97vh - 70px);}
 #header{
     font-size: x-large;
     font-weight: 900;
