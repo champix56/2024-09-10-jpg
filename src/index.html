@@ -1,125 +1,176 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="/styles/meme-editor.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/meme-editor.css" />
     <script src="/js/index.js"></script>
-</head>
+  </head>
 
-<body>
-    <div id="header">Meme<span class="dot">.</span><span class="js">js</span>
+  <body>
+    <div id="header">
+      Meme<span class="dot">.</span><span class="js">js</span>
     </div>
     <div id="navbar">
-        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor02"
+            aria-controls="navbarColor02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-light" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
     </div>
     <div id="main">
-        <div id="meme-viewer"><svg viewBox="0 0 1200 828" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <image
-                    xlink:href="https://static.cnews.fr/sites/default/files/2._dog_category_winner_jose_bayon_nilos_love_for_water-taille1200_632b202fb0442.jpg"
-                    x="0" y="0" />
-                <text x="0" y="0" alignment-baseline="hanging" font-size="70" text-decoration="underline"
-                    font-style="italic" font-weight="900" fill="white">ytuuiiuopiiuu</text>
-            </svg></div>
-        <div id="meme-editor">
-            <form>
-                <h2>Edition</h2>
-                <label for="meme_titre">titre</label>
-                <input type="text" name="titre" id="meme_titre">
-                <hr>
-                <label for="meme_imageId">image</label>
-                <select id="meme_imageId" name="imageId">
-                    <option value="-1">Pas d'images</option>
-                </select>
-                <hr>
-                <label for="meme_text">text</label>
-                <input type="text" name="text" id="meme_text">
-                <div class="cols_2">
-                    <div>
-                        <label for="meme_x">x</label>
-                        <input type="number" name="x" id="meme_x">
-                    </div>
-                    <div>
-                        <label for="meme_y">y</label>
-                        <input type="number" name="y" id="meme_y">
-                    </div>
-                </div>
-                <hr>
-                <h2>Décorations</h2>
-                <div class="cols_2">
-                    <div>
-                        <label for="meme_fontSize">font-size</label>
-                        <input type="number" min="0" name="fontSize" id="meme_fontSize">
-                    </div>
-                    <div>
-                        <label for="meme_fontWeight">font-weight</label>
-                        <input type="number" name="fontWeight" id="meme_fontWeight" min="100" max="900" step="100">
-                    </div>
-                </div>
-                <div class="cols_2">
-                    <div>
-                        <label for="meme_underline">underline</label>
-                        <input type="checkbox" name="underline" id="meme_underline">
-                    </div>
-                    <div>
-                        <label for="meme_color">color</label>
-                        <input type="color" name="color" id="meme_color">
-                    </div>
-                    <div>
-                        <label>italic</label>
-                        <label><input type="radio" name="italic" value="true">oui</label>
-                        <label><input
-                                type="radio" name="italic" value="false" checked>non</label>
-                    </div>
-                    
-                </div>
-                <hr>
-                <div class="cols_2">
-                    <button type="reset" class="btn btn-warning">Reinit</button>
-                    <button type="submit" class="btn btn-success">valider</button>
-                </div>
-            </form>
-        </div>
+      <div id="meme-viewer">
+        <svg
+          viewBox="0 0 1200 828"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <image
+            xlink:href="https://static.cnews.fr/sites/default/files/2._dog_category_winner_jose_bayon_nilos_love_for_water-taille1200_632b202fb0442.jpg"
+            x="0"
+            y="0"
+          />
+          <text
+            x="0"
+            y="0"
+            alignment-baseline="hanging"
+            font-size="70"
+            text-decoration="underline"
+            font-style="italic"
+            font-weight="900"
+            fill="white"
+          >
+            ytuuiiuopiiuu
+          </text>
+        </svg>
+      </div>
+      <div id="meme-editor">
+        <form>
+          <h2>Edition</h2>
+          <label for="meme_titre">titre</label>
+          <input type="text" name="titre" id="meme_titre" />
+          <hr />
+          <label for="meme_imageId">image</label>
+          <select id="meme_imageId" name="imageId">
+            <option value="-1">Pas d'images</option>
+          </select>
+          <hr />
+          <label for="meme_text">text</label>
+          <input type="text" name="text" id="meme_text" />
+          <div class="cols_2">
+            <div>
+              <label for="meme_x">x</label>
+              <input type="number" name="x" id="meme_x" />
+            </div>
+            <div>
+              <label for="meme_y">y</label>
+              <input type="number" name="y" id="meme_y" />
+            </div>
+          </div>
+          <hr />
+          <h2>Décorations</h2>
+          <div class="cols_2">
+            <div>
+              <label for="meme_fontSize">font-size</label>
+              <input type="number" min="0" name="fontSize" id="meme_fontSize" />
+            </div>
+            <div>
+              <label for="meme_fontWeight">font-weight</label>
+              <input
+                type="number"
+                name="fontWeight"
+                id="meme_fontWeight"
+                min="100"
+                max="900"
+                step="100"
+              />
+            </div>
+          </div>
+          <div class="cols_2">
+            <div>
+              <label for="meme_underline">underline</label>
+              <input type="checkbox" name="underline" id="meme_underline" />
+            </div>
+            <div>
+              <label for="meme_color">color</label>
+              <input type="color" name="color" id="meme_color" />
+            </div>
+            <div>
+              <label>italic</label>
+              <label
+                ><input type="radio" name="italic" value="true" />oui</label
+              >
+              <label
+                ><input
+                  type="radio"
+                  name="italic"
+                  value="false"
+                  checked
+                />non</label
+              >
+            </div>
+          </div>
+          <hr />
+          <div class="cols_2">
+            <button type="reset" class="btn btn-warning">Reinit</button>
+            <button type="submit" class="btn btn-success">valider</button>
+          </div>
+        </form>
+      </div>
     </div>
     <div id="footer">copyright &copy; 2024</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
