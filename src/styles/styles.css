@@ -1,0 +1,25 @@
+body{
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
+}
+#header{
+    font-size: x-large;
+    font-weight: 900;
+    color: tomato;
+}
+#header .dot
+{
+    color:black;
+}
+#header .js{
+    font-style: italic;
+    color: skyblue;
+}
+#main{
+    flex-grow: 1;
+    display: flex;
+}
+#footer{
+    text-align: center;
+}
