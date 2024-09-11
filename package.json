@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "lite-server --baseDir=\"src\""
+    "start": "lite-server --baseDir=\"src\"",
+    "json": "json-server -p 5629 db/db.json"
   },
   "keywords": [],
   "author": "",
