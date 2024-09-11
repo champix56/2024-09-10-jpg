@@ -1,3 +1,6 @@
+#meme-editor{
+    display: flex;    
+}
 #meme-viewer{
     flex-grow: 1;
     padding: 10px;
@@ -8,7 +11,7 @@
 #meme-viewer>svg{
     max-height: 100%;
 }
-#meme-editor{
+#meme-form{
     padding: 5px 10px;
     text-align: center;
 }

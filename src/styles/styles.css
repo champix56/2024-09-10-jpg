@@ -19,7 +19,7 @@ body{
 }
 #main{
     flex-grow: 1;
-    display: flex;
+    /* display: flex; */
 }
 #footer{
     text-align: center;
