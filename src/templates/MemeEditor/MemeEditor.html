@@ -1,0 +1,99 @@
+<div id="meme-viewer">
+    <svg
+      viewBox="0 0 1200 828"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
+      <image
+        xlink:href="https://static.cnews.fr/sites/default/files/2._dog_category_winner_jose_bayon_nilos_love_for_water-taille1200_632b202fb0442.jpg"
+        x="0"
+        y="0"
+      />
+      <text
+        x="0"
+        y="0"
+        alignment-baseline="hanging"
+        font-size="70"
+        text-decoration="underline"
+        font-style="italic"
+        font-weight="900"
+        fill="white"
+      >
+        ytuuiiuopiiuu
+      </text>
+    </svg>
+  </div>
+  <div id="meme-editor">
+    <form>
+      <h2>Edition</h2>
+      <label for="meme_titre">titre</label>
+      <input type="text" name="titre" id="meme_titre" />
+      <hr />
+      <label for="meme_imageId">image</label>
+      <select id="meme_imageId" name="imageId">
+        <option value="-1">Pas d'images</option>
+      </select>
+      <hr />
+      <label for="meme_text">text</label>
+      <input type="text" name="text" id="meme_text" />
+      <div class="cols_2">
+        <div>
+          <label for="meme_x">x</label>
+          <input type="number" name="x" id="meme_x" />
+        </div>
+        <div>
+          <label for="meme_y">y</label>
+          <input type="number" name="y" id="meme_y" />
+        </div>
+      </div>
+      <hr />
+      <h2>Décorations</h2>
+      <div class="cols_2">
+        <div>
+          <label for="meme_fontSize">font-size</label>
+          <input type="number" min="0" name="fontSize" id="meme_fontSize" />
+        </div>
+        <div>
+          <label for="meme_fontWeight">font-weight</label>
+          <input
+            type="number"
+            name="fontWeight"
+            id="meme_fontWeight"
+            min="100"
+            max="900"
+            step="100"
+          />
+        </div>
+      </div>
+      <div class="cols_2">
+        <div>
+          <label for="meme_underline">underline</label>
+          <input type="checkbox" name="underline" id="meme_underline" />
+        </div>
+        <div>
+          <label for="meme_color">color</label>
+          <input type="color" name="color" id="meme_color" />
+        </div>
+        <div>
+          <label>italic</label>
+          <label
+            ><input type="radio" name="italic" value="true" />oui</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="italic"
+              value="false"
+              checked
+            />non</label
+          >
+        </div>
+      </div>
+      <hr />
+      <div class="cols_2">
+        <button type="reset" class="btn btn-warning">Reinit</button>
+        <button type="submit" class="btn btn-success">valider</button>
+      </div>
+    </form>
+  </div>
