@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "lite-server --baseDir=\"src\"",
-    "json": "json-server -p 5629 db/db.json"
+    "json": "json-server -p 5629 db/db.json",
+    "watch": "babel src --out-dir lib --extensions '.ts' --watch",
+    "build": "babel src --out-dir lib --extensions '.ts'"
   },
   "keywords": [],
   "author": "champix56 <desorbaix@free.fr>",
