@@ -1,8 +1,56 @@
 <div id="meme-thumbnail">
-    <div class="meme-thumbnail-meme">
-        <div class="title"></div>
-        <div class="svg">
-            
-        </div>
+  <style>
+    #meme-thumbnail {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 50px;
+      flex-wrap: wrap;
+    }
+    .meme-thumbnail-meme {
+      width: 350px;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .meme-thumbnail-meme .title {
+      text-align: center;
+    }
+    .meme-thumbnail-meme .svg {
+      flex-grow: 1;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+    }
+    .meme-thumbnail-meme svg {
+      max-height: 80%;
+    }
+  </style>
+  <div class="meme-thumbnail-meme" style="display: none" id="meme-">
+    <div class="title"><a href="/meme/id" class="title-link"> </a></div>
+    <div class="svg">
+      <svg
+        viewBox="0 0 1000 1000"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <image
+          xlink:href="https://static.cnews.fr/sites/default/files/2._dog_category_winner_jose_bayon_nilos_love_for_water-taille1200_632b202fb0442.jpg"
+          x="0"
+          y="0"
+        />
+        <text
+          x="0"
+          y="0"
+          alignment-baseline="hanging"
+          font-size="70"
+          text-decoration="underline"
+          font-style="italic"
+          font-weight="900"
+          fill="white"
+        ></text>
+      </svg>
     </div>
+  </div>
 </div>

@@ -5,7 +5,6 @@ export default class MemeEditor {
   #domNode = undefined;
   #promise = undefined;
   #meme = undefined;
-  #svgTmpimage = undefined;
   #handleNumberChange = (evt) => {
     this.#meme[evt.target.name] = Number(evt.target.value);
     this.#reloadView();
@@ -29,6 +28,8 @@ export default class MemeEditor {
         case "font-size":
         case "x":
         case "y":
+          input.addEventListener("input", this.#handleNumberChange);
+          break;
         case "imageId":
           input.addEventListener("change", this.#handleNumberChange);
           break;
@@ -36,7 +37,7 @@ export default class MemeEditor {
           input.addEventListener("change", this.#handleCheckedChange);
           break;
         default:
-          input.addEventListener("change", this.#handleStringChange);
+          input.addEventListener("input", this.#handleStringChange);
           break;
       }
     });
@@ -81,7 +82,7 @@ export default class MemeEditor {
       meme.italic.toString();
     this.#domNode.querySelector("input[name=underline]").checked =
       meme.underline;
-      this.#reloadView();
+    this.#reloadView();
   };
   #loadSelectImages = () => {
     const select = this.#domNode.querySelector("select");
@@ -99,7 +100,7 @@ export default class MemeEditor {
    * chargement de la section de page pour editeur de meme
    * @param {Meme?} meme meme en cours, si undefined, meme = new Meme()
    */
-  loadEditor(meme = new Meme()) {
+  loadTemplate(params) {
     if (this.#promise === undefined) {
       this.#promise = fetch("/templates/MemeEditor/MemeEditor.html")
         .then((r) => r.text())
@@ -107,7 +108,7 @@ export default class MemeEditor {
           const d = document.createElement("div");
           d.innerHTML = r;
           this.#domNode = d.firstChild;
-          this.#svgTmpimage = d.querySelector("svg image");
+          //this.#svgTmpimage = d.querySelector("svg image");
           this.#addFormEvents();
           return r;
         });
@@ -117,9 +118,25 @@ export default class MemeEditor {
       main.innerHTML = "";
       main.appendChild(this.#domNode);
     });
-    Promise.all([images.promise, this.#promise]).then((r) => {
+
+    const promisesToWait = [this.#promise, images.promise];
+    if (params !== undefined && params.id !== undefined) {
+      const id = Number(params.id);
+      if (id === NaN) {
+        return router.navigate("/");
+      }
+      const memePromise = Meme.load(id).then((m) => {
+        if(m===undefined){ router.navigate("/");}
+        this.#meme = m
+        return (this.#meme);
+      });
+      promisesToWait.push(memePromise);
+    } else {
+      this.#meme = new Meme();
+    }
+    Promise.all(promisesToWait).then((r) => {
       this.#loadSelectImages();
-      this.loadMeme(meme);
+      this.loadMeme(this.#meme);
     });
   }
 }

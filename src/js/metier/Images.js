@@ -9,7 +9,8 @@ export default class Images extends Array{
   loadingAll() {
     this.splice(0);
     this.promise=fetch(`${ADR_REST}${RESSOURCES_NAMES.images}`)
-      .then((r) => r.json())
+      .then((r) => r.json());
+      this.promise
       .then((r) => {this.push(...r)});
   }
   /**

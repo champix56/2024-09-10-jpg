@@ -7,20 +7,22 @@ export default class TemplateLoader {
     this.templateuri = templateuri;
     this.domNodeWhereMount = domNodeWhereMount;
   }
-  loadTemplate = (eventBinder) => {
+  loadTemplate = (params,eventBinder) => {
     if (undefined === this.promise) {
       this.promise = fetch(this.templateuri)
         .then((r) => r.text())
         .then((r) => {
           this.domNodeLoaded = document.createElement("div");
           this.domNodeLoaded.innerHTML = r;
+          this.domNodeLoaded=this.domNodeLoaded.firstChild
           eventBinder(this.domNodeLoaded);
           return r;
         });
     }
-    this.promise.then((r) => {
+   return this.promise.then((r) => {
       this.domNodeWhereMount.innerHTML = "";
-      this.domNodeWhereMount.appendChild(...this.domNodeLoaded.children);
+      this.domNodeWhereMount.appendChild(this.domNodeLoaded);
+      return this.domNodeWhereMount;
     });
   };
 }
@@ -32,7 +34,8 @@ export class MemeSVGViewer extends TemplateLoader {
     super(templateUri, domNodeWhereMount);
   }
   eventBinder() {}
-  loadTemplate() {
-    super.loadTemplate(this.eventBinder);
+  loadTemplate(params) {
+    super.loadTemplate(params,this.eventBinder);
+    // this.promise.then()
   }
 }

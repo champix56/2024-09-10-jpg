@@ -36,6 +36,24 @@ export default class Meme {
     promise.then((r) => Object.assign(this, r));
     return promise;
   }
+  static load(id) {
+    return fetch(`${REST_ADR}${RESSOURCES_NAMES.memes}/${id}`)
+      .then((r) => {
+        if (r.ok) {
+          return r.json();
+        } else {
+          console.log("REST404 : meme not found at adr:"+ r.url);
+          return undefined;
+        }
+      })
+      .then((r) => {
+        if (r !== undefined) {
+          const responseObject = r;
+          return new Meme(responseObject);
+        }
+        return undefined;
+      });
+  }
   getImageInMeme() {
     return images.findImageById(this.imageId);
   }
