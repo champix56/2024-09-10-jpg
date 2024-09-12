@@ -6,8 +6,10 @@
   "scripts": {
     "start": "lite-server --baseDir=\"src\"",
     "json": "json-server -p 5629 db/db.json",
-    "watch": "babel src --out-dir lib --extensions '.ts' --watch",
-    "build": "babel src --out-dir lib --extensions '.ts'"
+    "watch": "babel src --out-dir lib --watch",
+    "buildbabel": "babel src --out-dir src/lib",
+    "build": "webpack --config webpack.config.js"
+
   },
   "keywords": [],
   "author": "champix56 <desorbaix@free.fr>",
@@ -19,7 +21,9 @@
     "@babel/preset-typescript": "^7.24.7",
     "json-server": "^0.17.4",
     "lite-server": "^2.6.1",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "jquery": "^3.7.1"
