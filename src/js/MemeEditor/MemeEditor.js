@@ -1,6 +1,6 @@
 import { images } from "../metier/Images.js";
 import Meme from "../metier/Meme.js";
-
+import  '../../styles/meme-editor.css'
 export default class MemeEditor {
   #domNode = undefined;
   #promise = undefined;
