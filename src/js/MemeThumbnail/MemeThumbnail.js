@@ -6,14 +6,20 @@ export default class MemeThumbnail {
   constructor() {}
   loadTemplate(params, eventBinder) {
     if (this.#promise === undefined) {
-      this.#promise = fetch("/templates/MemeThumbnail/MemeThumbnail.html")
+      this.#promise = fetch("templates/MemeThumbnail/MemeThumbnail.html")
         .then((r) => r.text())
         .then((r) => {
           const d = document.createElement("div");
           d.innerHTML = r;
           this.#domNode = d.firstChild;
           return r;
-        });
+        })
+        // .then(() => {
+        //   const main = document.querySelector("#main");
+        //   main.innerHTML = "";
+        //   main.appendChild(this.#domNode);
+        //   return this.#domNode;
+        // });
     }
     this.#promise = this.#promise.then(() => {
       const main = document.querySelector("#main");
@@ -27,10 +33,13 @@ export default class MemeThumbnail {
       eventBinder(this.#domNode);
     });
   }
-  constructThumbnail = () => {
+  constructThumbnail = () => { 
+    this.#domNode.querySelectorAll(".meme-thumbnail-meme:not(#meme-)").forEach(e=>e.remove())
     const model = this.#domNode.querySelector("#meme-");
+   
     memes.map((m) => {
       const clonedmodel = model.cloneNode(true);
+      clonedmodel.id+=m.id;
       clonedmodel.querySelector("a").href = "/meme/" + m.id;
       clonedmodel.querySelector(".title-link").innerHTML = m.titre;
       const svg = clonedmodel.querySelector("svg");

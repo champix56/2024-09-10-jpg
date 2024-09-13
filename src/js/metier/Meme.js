@@ -32,8 +32,7 @@ export default class Meme {
         method: undefined !== this.id ? "PUT" : "POST",
         body: JSON.stringify(this),
       }
-    ).then((r) => r.json());
-    promise.then((r) => Object.assign(this, r));
+    ).then((r) => r.json()).then((r) =>{ Object.assign(this, r); return this;});
     return promise;
   }
   static load(id) {

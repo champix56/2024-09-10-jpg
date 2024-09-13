@@ -9,10 +9,10 @@ function Modal() {
    * show callback
    * @param {string} title title of message
    * @param {string} okCallback text content
-   * @param {Function} okCallback callback on ok click
-   * @param {Function?} cancelCallbak callback on cancel click, define cancel button presence
+   * @param {any} okCallback callback on ok click
+   * @param {Function|undefined} cancelCallbak callback on cancel click, define cancel button presence
    */
-  this.show = function (title, message, okCallback, cancelCallbak) {
+  this.show = function (title, message, okCallback, cancelCallbak=undefined) {
     // if(cancelCallbak===undefined)cancelCallbak=null;
     if (xhr.readyState !== XMLHttpRequest.DONE) {
       var modalthis = this;

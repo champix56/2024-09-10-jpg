@@ -1,10 +1,11 @@
 import { images } from "../metier/Images.js";
 import Meme from "../metier/Meme.js";
-
+import { memes } from "../metier/Memes.js";
+import '../Modal/Modal.js'
 export default class MemeEditor {
   #domNode = undefined;
   #promise = undefined;
-  #meme = undefined;
+  #meme = new Meme();
   #handleNumberChange = (evt) => {
     this.#meme[evt.target.name] = Number(evt.target.value);
     this.#reloadView();
@@ -20,6 +21,18 @@ export default class MemeEditor {
   #addFormEvents = () => {
     this.#domNode.querySelector("form").addEventListener("submit", (evt) => {
       evt.preventDefault();
+      modal.show('etes vous sure', 'voulez vous enregistrer ce model', ()=>{
+        this.#meme.save().then((r) => {
+          const position = memes.findIndex((m) => m.id === r.id);
+          if (position >= 0) {
+            memes[position] = r;
+          } else {
+            memes.push(r);
+          }
+          router.navigate('/memes#meme-'+r.id);
+        });
+      },()=>{})
+    
       console.log("%c%s", "color:red;font-size:32pt", "Formulaire valider");
     });
     const inputs = this.#domNode.querySelectorAll("input, select");
@@ -102,7 +115,7 @@ export default class MemeEditor {
    */
   loadTemplate(params) {
     if (this.#promise === undefined) {
-      this.#promise = fetch("/templates/MemeEditor/MemeEditor.html")
+      this.#promise = fetch("templates/MemeEditor/MemeEditor.html")
         .then((r) => r.text())
         .then((r) => {
           const d = document.createElement("div");
@@ -126,9 +139,11 @@ export default class MemeEditor {
         return router.navigate("/");
       }
       const memePromise = Meme.load(id).then((m) => {
-        if(m===undefined){ router.navigate("/");}
-        this.#meme = m
-        return (this.#meme);
+        if (m === undefined) {
+          router.navigate("/");
+        }
+        this.#meme = m;
+        return this.#meme;
       });
       promisesToWait.push(memePromise);
     } else {

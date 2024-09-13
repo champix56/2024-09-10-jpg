@@ -18,7 +18,7 @@ export const routerConfig = [
   {
     name: "credits",
     path: /credits\/?$/,
-    templateUrl: "/templates/credits/credits.html",
+    templateUrl: "templates/credits/credits.html",
     title: "remerciements",
   },
   {
